@@ -4,10 +4,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  enum role: {
-    member: 'member',
-    librarian: 'librarian'
-  }, _default: :member
+  enum :role, {
+    member: "member",
+    librarian: "librarian"
+  }, default: "member"
 
   has_many :borrowings, dependent: :destroy
   has_many :borrowed_books, through: :borrowings, source: :book

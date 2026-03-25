@@ -3,12 +3,17 @@ class ApplicationController < ActionController::Base
   allow_browser versions: :modern
 
   include Pundit::Authorization
+  include JsonRespondable
 
   rescue_from Pundit::NotAuthorizedError, with: :render_not_authorized
 
-  private
+  protected
 
   def render_not_authorized
-    render json: { error: "You are not authorized to perform this action." }, status: :forbidden
+    render json: json_error_response(
+      status: :forbidden,
+      title: "Forbidden",
+      detail: "You are not authorized to perform this action."
+    ), status: :forbidden
   end
 end

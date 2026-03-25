@@ -11,11 +11,15 @@ module Api
       private
 
       def render_not_found(exception)
-        render json: { error: exception.message }, status: :not_found
+        render json: json_error_response(
+          status: :not_found,
+          title: "Not found",
+          detail: exception.message
+        ), status: :not_found
       end
 
       def render_record_invalid(exception)
-        render json: { errors: exception.record.errors.full_messages }, status: :unprocessable_entity
+        render json: json_validation_error_response(exception.record), status: :unprocessable_entity
       end
     end
   end

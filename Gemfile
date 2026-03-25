@@ -11,6 +11,7 @@ gem "puma", ">= 5.0"
 gem "devise"
 gem "pundit"
 gem "rack-cors"
+gem "jsonapi-serializer"
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
 

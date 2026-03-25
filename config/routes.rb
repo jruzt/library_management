@@ -33,5 +33,10 @@ Rails.application.routes.draw do
   get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
 
   root "home#index"
-  get "*path", to: "home#index", constraints: ->(request) { request.format.html? && !request.path.start_with?("/rails/") && !request.path.start_with?("/api/") }
+  get "*path", to: "home#index",
+               constraints: ->(request) {
+                 request.format.html? &&
+                   !request.path.start_with?("/rails/") &&
+                   !request.path.start_with?("/api/")
+               }
 end
