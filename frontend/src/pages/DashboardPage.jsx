@@ -2,6 +2,7 @@ import CatalogSection from "../components/CatalogSection";
 import DashboardSection from "../components/DashboardSection";
 import LibrarianBorrowingsPanel from "../components/LibrarianBorrowingsPanel";
 import SidebarPanel from "../components/SidebarPanel";
+import { ROLES } from "../lib/constants";
 
 function DashboardPage({ actions, state }) {
   const { auth, books, borrowings, dashboard, ui } = state;
@@ -44,7 +45,7 @@ function DashboardPage({ actions, state }) {
         />
       </section>
 
-      {auth.user.role === "librarian" && (
+      {auth.user.role === ROLES.librarian && (
         <LibrarianBorrowingsPanel borrowings={borrowings.items} onReturn={actions.handleReturn} />
       )}
     </main>

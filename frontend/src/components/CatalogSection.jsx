@@ -1,3 +1,5 @@
+import { ROLES } from "../lib/constants";
+
 function CatalogSection({
   books,
   onBorrow,
@@ -34,7 +36,7 @@ function CatalogSection({
                   Borrow
                 </button>
               )}
-              {user.role === "librarian" && (
+              {user.role === ROLES.librarian && (
                 <>
                   <button onClick={() => onEditBook(book)}>Edit</button>
                   <button className="danger" onClick={() => onDeleteBook(book.id)}>Delete</button>

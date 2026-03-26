@@ -32,6 +32,7 @@
 /public/assets
 /frontend/node_modules
 /frontend/dist
+/frontend/.vite-cache
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key

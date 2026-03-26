@@ -1,7 +1,7 @@
 class BorrowingSerializer < BaseSerializer
   set_type :borrowing
 
-  attributes :borrowed_at, :due_on, :returned_at
+  attributes :borrowed_at, :due_on
 
   attribute :active do |object|
     object.active?
@@ -9,6 +9,10 @@ class BorrowingSerializer < BaseSerializer
 
   attribute :overdue do |object|
     object.overdue?
+  end
+
+  attribute :returned_at do |object|
+    object.returned_at&.strftime("%Y-%m-%d %H:%M")
   end
 
   belongs_to :user, serializer: BorrowingUserSerializer

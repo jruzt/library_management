@@ -195,6 +195,15 @@ input {
   align-items: flex-start;
 }
 
+.borrowings-group + .borrowings-group {
+  margin-top: 1.5rem;
+}
+
+.borrowings-group h3 {
+  margin: 0 0 0.75rem;
+  font-size: 1rem;
+}
+
 .borrowing-summary .overdue-badge {
   background: #f87171;
   color: #ffffff;
@@ -254,6 +263,11 @@ input {
   background: #e6f4ea;
   color: #216e39;
   border: 1px solid #b7dfc6;
+}
+
+.muted-copy {
+  margin: 0;
+  color: #52606d;
 }
 
 .danger {

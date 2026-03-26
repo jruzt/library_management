@@ -1,3 +1,5 @@
+import { ROLES } from "../lib/constants";
+
 function SidebarPanel({
   bookForm,
   borrowings,
@@ -7,7 +9,7 @@ function SidebarPanel({
   setBookForm,
   user
 }) {
-  if (user.role === "librarian") {
+  if (user.role === ROLES.librarian) {
     return (
       <div className="panel">
         <h2>{editingBookId ? "Edit book" : "Add a book"}</h2>
